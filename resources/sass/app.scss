@@ -1,0 +1,70 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.btn-center {
+	text-align: center;
+}
+.table-cont {
+	margin-top: 40px;
+}
+.user-table {
+	border-collapse: collapse;
+    border: 3px solid #2ED47A;
+    width: 100%;
+}
+.bold-text {
+	font-size: 18px;
+	font-weight: bold;
+    border: 3px solid #2ED47A;
+    padding: 0 20px;
+    text-align: center;
+    color: #000;
+}
+.text-td {
+	border: 1px solid #333;
+	text-align: center;
+	color: #111;
+	padding: 8px 0;
+}
+#mute {
+	background: #333;
+	opacity: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	top: 0;
+	left: 0;
+	display: none;
+}
+#mute.on-mute {
+	display: block;
+	opacity: 0.7;
+}
+.paginate {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+.paginate__span-prev, .paginate__link-prev, .paginate__link-active, .paginate__link, .paginate__dots, .paginate__link-next, .paginate__span-next {
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+        text-decoration: underline;
+        font-size: 15px;
+}
+.paginate__link-prev, .paginate__link, .paginate__link-next {
+	color: #2ED47A;
+}
+.paginate__dots, .paginate__span-prev, .paginate__link-active, .paginate__span-next {
+    color: #888;
+    cursor: default;
+    text-decoration: none;
+}
