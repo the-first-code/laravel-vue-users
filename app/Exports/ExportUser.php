@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Profile;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class ExportUser implements FromCollection
@@ -12,6 +12,6 @@ class ExportUser implements FromCollection
     */
     public function collection()
     {
-        return Profile::select('last_name')->get();
+        return User::select('last_name')->get();
     }
 }

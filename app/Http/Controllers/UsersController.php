@@ -22,18 +22,6 @@ class UsersController extends Controller
         return response(User::paginate(20)->jsonSerialize(), Response::HTTP_OK);
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function profile()
-    {
-        return response(Profile::paginate(20)->jsonSerialize(), Response::HTTP_OK);
-    }
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -51,25 +39,6 @@ class UsersController extends Controller
         return response(null, Response::HTTP_OK);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Supliers  $supliers
-     * @return \Illuminate\Http\Response
-     */
-    public function updateProfile($id, Request $request)
-    {
-        $profile = Profile::find($id);
-        $profile->{$request->paramName} = $request->param;
-        $profile->updated_at = new \DateTime();
-        $profile->save();
-
-        return response(null, Response::HTTP_OK);
-    }
-
-
     /**
      * Remove the specified resource from storage.
      *
@@ -82,20 +51,5 @@ class UsersController extends Controller
         $users->find($id)->delete();
 
         return response($users->paginate(20)->jsonSerialize(), Response::HTTP_OK);
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Supliers  $supliers
-     * @return \Illuminate\Http\Response
-     */
-    public function destroyProfile($id)
-    {
-        $profiles = new Profile();
-        $profiles->find($id)->delete();
-
-        return response($profiles->paginate(20)->jsonSerialize(), Response::HTTP_OK);
     }
 }

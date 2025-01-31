@@ -23,7 +23,6 @@
                                   :key="user.id"
                                   v-bind="user"
                                   @update="updateUser"
-                                  @updateProfile="updateProfile"
                                   @del="delUser"
                             ></User>
                         </tbody>
@@ -67,32 +66,18 @@ export default {
     },
     computed: {
         users() {
-            let arr = [];
-            for (var i = 0; i < 20; i++) {
-                if (this.$store.state.getUser.users[i] != null || this.$store.state.getUser.profiles[i] != null)
-                arr.push(Object.assign({}, this.$store.state.getUser.users[i], this.$store.state.getUser.profiles[i]));
-            }
-
-            return arr;
+            return this.$store.state.getUser.users;
         }
-        /*mute() {
-            return this.$store.state.getSup.mute;
-        }*/
     },
     methods: {
         ...mapActions('getUser', {
             read: 'read',
-           //readProf: 'readProf',
             update: 'update',
             updateProfiler: 'updateProfiler',
             del: 'del'
         }),
-        /*...mapMutations('getSup', {
-            mute: 'mute'
-        }),*/
         paging(obj) {
             this.read(obj);
-            //this.readProf(obj);
         },
         updateUser(id, pageNumb, paramName, param) {
             this.objVal.id = id;
@@ -100,13 +85,6 @@ export default {
             this.objVal.paramName = paramName;
             this.objVal.param = param;
             this.update(this.objVal);
-        },
-        updateProfile(id, pageNumb, paramName, param) {
-            this.objValProf.id = id;
-            this.objValProf.pageNumb = pageNumb;
-            this.objValProf.paramName = paramName;
-            this.objValProf.param = param;
-            this.updateProfiler(this.objValProf);
         },
         delUser(id, pageNumb) {
             let obj = {

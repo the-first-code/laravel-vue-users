@@ -22,12 +22,6 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/users', [ UsersController::class, 'index' ]);
 
-Route::get('/usersProfile', [ UsersController::class, 'profile' ]);
-
 Route::put('/update/{id}', [ UsersController::class, 'update' ]);
 
-Route::put('/updateProfile/{id}', [ UsersController::class, 'updateProfile' ]);
-
 Route::get('/delete/{id}', [ UsersController::class, 'destroy' ]);
-
-Route::get('/deleteProf/{id}', [ UsersController::class, 'destroyProfile' ]);
